@@ -6,7 +6,7 @@
  * @Description: In User Settings Edit
  * @FilePath: \webServeri:\project\goUtils\time.go
  */
-package main
+package goUtils
 
 import "time"
 
