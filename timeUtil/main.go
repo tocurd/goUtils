@@ -1,12 +1,12 @@
 /*
  * @Author: your name
  * @Date: 2021-06-04 22:28:48
- * @LastEditTime: 2021-06-05 10:45:24
+ * @LastEditTime: 2021-06-05 10:48:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edits
  * @FilePath: \webServeri:\project\goUtils\time.go
  */
-package goUtils
+package timeUtil
 
 import "time"
 
