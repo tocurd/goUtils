@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-04 22:28:48
- * @LastEditTime: 2021-06-05 10:48:02
+ * @LastEditTime: 2021-06-05 11:03:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edits
  * @FilePath: \webServeri:\project\goUtils\time.go
@@ -15,7 +15,10 @@ import "time"
  * @param {*}
  * @return {*}
  */
-// func Get
+func GetNowDay() (time.Time, error) {
+	nowDay := time.Now().Format("2016-01-26")
+	return GetTimeByString(nowDay, "2016-01-26")
+}
 
 /**
  * @description: 当前时间
