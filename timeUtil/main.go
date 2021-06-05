@@ -1,23 +1,31 @@
 /*
  * @Author: your name
  * @Date: 2021-06-04 22:28:48
- * @LastEditTime: 2021-06-05 11:03:47
+ * @LastEditTime: 2021-06-05 14:05:53
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edits
  * @FilePath: \webServeri:\project\goUtils\time.go
  */
 package timeUtil
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 /**
  * @description: 获取今日0点的时间戳
  * @param {*}
  * @return {*}
  */
-func GetNowDay() (time.Time, error) {
-	nowDay := time.Now().Format("2016-01-26")
-	return GetTimeByString(nowDay, "2016-01-26")
+func GetNowDay() string {
+	nowDay := time.Now().Format("2006-01-01")
+	fmt.Println("nowDay", nowDay)
+	timeResult, err := GetTimeByString(nowDay, "2006-01-01")
+	if err != nil {
+		return nowDay
+	}
+	return timeResult.Format("2006-01-01")
 }
 
 /**
