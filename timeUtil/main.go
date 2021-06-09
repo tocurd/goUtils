@@ -1,31 +1,36 @@
 /*
  * @Author: your name
  * @Date: 2021-06-04 22:28:48
- * @LastEditTime: 2021-06-05 14:05:53
+ * @LastEditTime: 2021-06-08 16:54:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edits
  * @FilePath: \webServeri:\project\goUtils\time.go
  */
 package timeUtil
 
+// 2006-01-02 15:04:05
+
 import (
-	"fmt"
 	"time"
 )
 
 /**
- * @description: 获取今日0点的时间戳
+ * @description: 获取指定天后的日期
  * @param {*}
  * @return {*}
  */
-func GetNowDay() string {
-	nowDay := time.Now().Format("2006-01-01")
-	fmt.Println("nowDay", nowDay)
-	timeResult, err := GetTimeByString(nowDay, "2006-01-01")
+func GetDay(day int) string {
+
+	// GetTimeByInt
+	t := time.Now().Unix()
+	t = t + int64(day*86400)
+	nowDay := GetTimeByInt(t).Format("2006-01-02")
+
+	timeResult, err := GetTimeByString(nowDay, "2006-01-02")
 	if err != nil {
 		return nowDay
 	}
-	return timeResult.Format("2006-01-01")
+	return timeResult.Format("2006-01-02")
 }
 
 /**
@@ -87,8 +92,13 @@ func GetTimeByString(timestring string, timeFormat string) (time.Time, error) {
 	return time.ParseInLocation(timeFormat, timestring, time.Local)
 }
 
-// 标准字符串转时间
-func GetTimeByNormalString(timestring string, normalTimeFormat string) (time.Time, error) {
+/**
+ * @description: 标准字符串转时间
+ * @param {string} timestring
+ * @param {string} normalTimeFormat
+ * @return {*}
+ */
+func StringToTime(timestring string, normalTimeFormat string) (time.Time, error) {
 	if timestring == "" {
 		return time.Time{}, nil
 	}
@@ -102,7 +112,7 @@ func GetTimeByNormalString(timestring string, normalTimeFormat string) (time.Tim
  * @return {*}
  */
 func CompareTime(t1, t2 time.Time) bool {
-	return t1.Before(t2)
+	return t1.Unix() > t2.Unix()
 }
 
 /**

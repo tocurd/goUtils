@@ -9,14 +9,10 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/Tocurd/goUtils/timeUtil"
 )
 
 func main() {
 	time := timeUtil.GetNowDay()
-
-	fmt.Println(time)
 
 }
