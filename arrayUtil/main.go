@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-07 10:10:13
- * @LastEditTime: 2021-06-09 15:56:37
+ * @LastEditTime: 2021-06-15 15:29:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \goUtils\arrayUtil\main.go
@@ -87,7 +87,7 @@ func Field(array interface{}, key ...string) (result []interface{}, err error) {
 		return nil, errors.New("array type not slice")
 	}
 	if value.Len() == 0 {
-		return nil, errors.New("array len is zero")
+		return result, nil
 	}
 
 	for i := 0; i < value.Len(); i++ {

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-05 14:56:53
- * @LastEditTime: 2021-06-07 15:59:44
+ * @LastEditTime: 2021-06-18 14:41:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \goUtils\turnUtil\main.go
@@ -10,6 +10,8 @@ package turnUtil
 
 import (
 	"strconv"
+
+	"github.com/axgle/mahonia"
 )
 
 // string转成int：
@@ -36,5 +38,21 @@ func StringToInt64(value string) int64 {
 	if err != nil {
 		return -1
 	}
+	return result
+}
+
+/**
+ * @description:字符串转码
+ * @param {string} src
+ * @param {string} srcCode
+ * @param {string} tagCode
+ * @return {*}
+ */
+func ConvertToString(src string, srcCode string, tagCode string) string {
+	srcCoder := mahonia.NewDecoder(srcCode)
+	srcResult := srcCoder.ConvertString(src)
+	tagCoder := mahonia.NewDecoder(tagCode)
+	_, cdata, _ := tagCoder.Translate([]byte(srcResult), true)
+	result := string(cdata)
 	return result
 }

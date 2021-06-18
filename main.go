@@ -1,18 +1,18 @@
 /*
  * @Author: your name
  * @Date: 2021-06-05 11:25:49
- * @LastEditTime: 2021-06-05 14:05:13
+ * @LastEditTime: 2021-06-18 17:26:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \goUtils\main.go
  */
 package main
 
-import (
-	"github.com/Tocurd/goUtils/timeUtil"
-)
+import "fmt"
 
 func main() {
-	time := timeUtil.GetNowDay()
+	var test bool
+
+	fmt.Println(test)
 
 }
